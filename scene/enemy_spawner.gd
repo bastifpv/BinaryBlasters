@@ -9,7 +9,6 @@ func _ready():
 	randomize()
 	spawn_positions = $SpawnPosistion.get_children()
 
-
 func spawn_enemy():
 	var index = randi() % spawn_positions.size()
 	var enemy = Enemy.instantiate()

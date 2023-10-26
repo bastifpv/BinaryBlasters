@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 const speed = 400
 var current_dir = "none"
-
+var hp = 5
+#https://www.youtube.com/watch?v=qd0UTOQ_la8
 
 func _ready():
 	pass
@@ -27,3 +28,7 @@ func player_movement(delta):
 		
 	move_and_slide()
 
+func take_damage(damage):
+	hp -= damage
+	if hp <= 0:
+		queue_free()
