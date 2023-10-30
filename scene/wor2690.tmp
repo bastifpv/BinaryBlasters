@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dm08hnoctsvjd"]
+[gd_scene load_steps=9 format=3 uid="uid://dm08hnoctsvjd"]
 
 [ext_resource type="Script" path="res://scene/world.gd" id="1_1gor4"]
 [ext_resource type="Texture2D" uid="uid://tmctx5dcsodj" path="res://assets/Backgrounds/darkPurple.png" id="1_dldcb"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dwvv11a2bo5jw" path="res://scene/enemy_spawner.tscn" id="4_tmrqf"]
 [ext_resource type="Script" path="res://scene/Score.gd" id="5_3d86w"]
 [ext_resource type="Script" path="res://scene/HP.gd" id="6_nwjgq"]
-[ext_resource type="Script" path="res://scene/Speed.gd" id="7_f3fos"]
-[ext_resource type="PackedScene" uid="uid://vi4ruml2gvb4" path="res://scene/game_over.tscn" id="8_vvlxj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ypnyf"]
 font_size = 20
@@ -30,31 +28,17 @@ region_rect = Rect2(0, 0, 540, 960)
 [node name="Player" parent="." instance=ExtResource("2_wq8q6")]
 position = Vector2(270, 750)
 
-[node name="GameUI" type="CanvasLayer" parent="."]
-
-[node name="Score" type="Label" parent="GameUI"]
+[node name="Score" type="Label" parent="."]
 offset_right = 56.0
 offset_bottom = 31.0
 label_settings = SubResource("LabelSettings_ypnyf")
 script = ExtResource("5_3d86w")
 
-[node name="HP" type="Label" parent="GameUI"]
+[node name="HP" type="Label" parent="."]
 offset_left = 470.0
 offset_right = 540.0
 offset_bottom = 39.0
 label_settings = SubResource("LabelSettings_0igsr")
 script = ExtResource("6_nwjgq")
 
-[node name="Speed" type="Label" parent="GameUI"]
-offset_left = 250.0
-offset_right = 290.0
-offset_bottom = 23.0
-script = ExtResource("7_f3fos")
-
-[node name="GameOver" parent="GameUI" instance=ExtResource("8_vvlxj")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[connection signal="spawn_laser" from="Player" to="." method="_on_player_spawn_laser"]

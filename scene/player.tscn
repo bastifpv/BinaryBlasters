@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://civjys6vxfp58" path="res://assets/PNG/playerShip2_orange.png" id="2_kxi62"]
 
 [node name="Player" type="Area2D"]
+scale = Vector2(0.8, 0.8)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_uit2n")
@@ -14,9 +15,10 @@ scale = Vector2(0.959459, 1.15384)
 texture = ExtResource("2_kxi62")
 
 [node name="LaserSpawn" type="Marker2D" parent="."]
-position = Vector2(-1, -21)
+position = Vector2(-1, -52.25)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1.19209e-07, 0)
 polygon = PackedVector2Array(-4, -45, 3, -45, 10, -23, 54, 5, 35, 41, 15, 33, 11, 42, -13, 42, -17, 33, -37, 39, -56, 5, -12, -23)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
