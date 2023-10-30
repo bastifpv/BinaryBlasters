@@ -39,6 +39,8 @@ jobs:
           path: dist/
 
   deploy:
+    environments:
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
