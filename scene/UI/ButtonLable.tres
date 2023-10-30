@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bav5c781rxa3g"]
+
+[ext_resource type="FontFile" uid="uid://5i8hq53m2ron" path="res://assets/Bonus/kenvector_future.ttf" id="1_geotr"]
+
+[resource]
+line_spacing = 2.0
+font = ExtResource("1_geotr")
+font_size = 25
+font_color = Color(0, 0, 0, 1)

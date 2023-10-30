@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://d30mj2l8qa5y8"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_426mo"]
+[ext_resource type="FontFile" uid="uid://5i8hq53m2ron" path="res://assets/Bonus/kenvector_future.ttf" id="2_aannk"]
+[ext_resource type="Texture2D" uid="uid://b0px5o1a4bu7o" path="res://assets/PNG/UI/buttonBlue.png" id="2_oafaw"]
+[ext_resource type="StyleBox" uid="uid://kabe0e186yjo" path="res://scene/UI/ButtonStyle.tres" id="3_0pkbk"]
+[ext_resource type="LabelSettings" uid="uid://bav5c781rxa3g" path="res://scene/UI/ButtonLable.tres" id="3_fixkb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgx1s"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_nnppu"]
+font = ExtResource("2_aannk")
+font_size = 60
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_426mo")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 0.384314, 1, 0.698039)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -307.5
+offset_right = 232.0
+offset_bottom = 307.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cgx1s")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.0
+offset_top = 36.0
+offset_right = 220.0
+offset_bottom = 146.0
+grow_horizontal = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_nnppu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 142.5
+offset_right = -89.0
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = ExtResource("3_0pkbk")
+theme_override_styles/hover = ExtResource("3_0pkbk")
+theme_override_styles/pressed = ExtResource("3_0pkbk")
+theme_override_styles/focus = ExtResource("3_0pkbk")
+icon = ExtResource("2_oafaw")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="Panel/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+label_settings = ExtResource("3_fixkb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="Panel"]
+layout_mode = 2
+offset_left = 75.0
+offset_top = 384.5
+offset_right = 375.0
+offset_bottom = 449.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("3_0pkbk")
+theme_override_styles/hover = ExtResource("3_0pkbk")
+theme_override_styles/pressed = ExtResource("3_0pkbk")
+theme_override_styles/focus = ExtResource("3_0pkbk")
+icon = ExtResource("2_oafaw")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="Panel/Restart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+label_settings = ExtResource("3_fixkb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/Restart" to="." method="_on_restart_pressed"]

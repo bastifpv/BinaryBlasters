@@ -20,7 +20,10 @@ func _ready():
 	player.gotHit.connect(_on_player_damage)
 	player.didHit.connect(_on_enemy_damage)
 	player.shoot.connect(_on_player_spawn_laser)
-
+	gameover.visible = false
+	playerhp = 1
+	speed = 2
+	score = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
