@@ -14,6 +14,7 @@ func _process(delta):
 func _on_area_entered(area):
 	if area.is_in_group("enemie"):
 		area.take_damage(1)
+		GlobalValues.score += 1
 		queue_free()
 		print("Enemy Takes Damage")
 		

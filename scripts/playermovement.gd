@@ -5,7 +5,6 @@ signal spawn_laser(location)
 @onready var marker = $LaserSpawn
 
 const speed = 400
-var hp = 5
 var input_vector = Vector2.ZERO
 
 
@@ -25,8 +24,8 @@ func player_movement(delta):
 		shootLaser()
 
 func take_damage(damage):
-	hp -= damage
-	if hp <= 0:
+	GlobalValues.hp -= damage
+	if GlobalValues.hp <= 0:
 		queue_free()
 	
 
@@ -34,6 +33,7 @@ func _on_area_entered(area):
 	
 	if area.is_in_group("enemie"):
 		area.take_damage(1)
+		GlobalValues.score += 1
 		print("Enemy Takes Damage")
 		
 		

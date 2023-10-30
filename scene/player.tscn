@@ -1,24 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://qrwlikm6w4ee"]
 
-[ext_resource type="Texture2D" uid="uid://dogixb7j2vj2b" path="res://assets/PNG/UI/playerLife2_orange.png" id="1_6oppy"]
 [ext_resource type="Script" path="res://scripts/playermovement.gd" id="1_uit2n"]
+[ext_resource type="Texture2D" uid="uid://civjys6vxfp58" path="res://assets/PNG/playerShip2_orange.png" id="2_kxi62"]
 
 [node name="Player" type="Area2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_uit2n")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-0.206579, 0.327372)
-scale = Vector2(0.993421, 0.984914)
-polygon = PackedVector2Array(2, -16, 3, -10, 18, 0, 10, 12, 5, 10, 3, 13, -5, 13, -7, 10, -11, 12, -12, 13, -20, -1, -5, -10, -4, -16)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.75, -1.5)
-scale = Vector2(0.959459, 1.11538)
-texture = ExtResource("1_6oppy")
+position = Vector2(-0.749996, -0.99997)
+scale = Vector2(0.959459, 1.15384)
+texture = ExtResource("2_kxi62")
 
 [node name="LaserSpawn" type="Marker2D" parent="."]
 position = Vector2(-1, -21)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-4, -45, 3, -45, 10, -23, 54, 5, 35, 41, 15, 33, 11, 42, -13, 42, -17, 33, -37, 39, -56, 5, -12, -23)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
