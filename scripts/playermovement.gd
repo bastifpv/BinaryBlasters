@@ -27,6 +27,8 @@ func player_movement(delta):
 
 func take_damage(damage):
 	gotHit.emit(damage)
+	if (Controller.playerhp <= 0):
+		killed.emit()
 	
 func _on_area_entered(area):
 	didHit.emit(area)

@@ -1,7 +1,16 @@
 extends Node2D
-
+class_name Controller
 @onready var player = $Player
 @onready var gameover = $GameUI/GameOver
+@onready var hpUI = $GameUI/InGameUI/HP
+@onready var speedUI = $GameUI/InGameUI/Speed
+@onready var scoreUI = $GameUI/InGameUI/Score
+@onready var enemySpawner = $EnemySpawner
+
+var lasers = []
+static var playerhp = 1
+static var speed = 2
+static var score = 0
 
 
 var Laser = preload("res://scene/PlayerLaser.tscn")
@@ -12,18 +21,19 @@ func _ready():
 	player.didHit.connect(_on_enemy_damage)
 	player.shoot.connect(_on_player_spawn_laser)
 
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (GlobalValues.hp <= 0):
-		pass
-		
+	hpUI.text = 'HP: ' + str(playerhp)
+	speedUI.text = 'Speed: ' + str(speed)
+	scoreUI.text = 'Score: ' + str(score)
 
 func _on_player_spawn_laser(location):
 	var l = Laser.instantiate()
 	l.global_position = location
 	add_child(l)
+
+	
 
 func _on_player_killed():
 	await get_tree().create_timer(0).timeout
@@ -31,14 +41,18 @@ func _on_player_killed():
 	player.queue_free()
 
 func _on_player_damage(val):
-	GlobalValues.hp -= val
-	if GlobalValues.hp <= 0:
-		player.killed.emit()
+	playerhp -= val
+	if playerhp <= 0:
+		pass
 		
 func _on_enemy_damage(area):
+
 	if area.is_in_group("enemie"):
 		area.take_damage(1)
-		GlobalValues.score += 1
-		GlobalValues.speed -= 0.05
+		score += 1
+		speed -= 0.05
 		print("Enemy Takes Damage")
 		
+
+
+	

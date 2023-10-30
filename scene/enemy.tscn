@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://caedncms1y1v0"]
 
-[ext_resource type="Script" path="res://scene/enemy.gd" id="1_8co1x"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_8co1x"]
 [ext_resource type="Texture2D" uid="uid://bu3vtlrlemtmn" path="res://assets/PNG/Enemies/enemyBlue5.png" id="1_68qem"]
 
 [node name="Enemy" type="Area2D" groups=["enemie"]]

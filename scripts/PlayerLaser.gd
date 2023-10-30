@@ -8,18 +8,17 @@ func _ready():
 	pass # Replace with function body.
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
 func _on_area_entered(area):
-	didHit.emit()
-
 	if area.is_in_group("enemie"):
 		area.take_damage(1)
-		GlobalValues.score += 1
-		GlobalValues.speed -= 0.05
+		Controller.score += 1
+		Controller.speed -= 0.05
 		queue_free()
 		print("Enemy Takes Damage")
 
