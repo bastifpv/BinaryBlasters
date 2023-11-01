@@ -3,7 +3,6 @@ class_name Controller
 @onready var player = $Player
 @onready var gameover = $GameUI/GameOver
 @onready var hpUI = $GameUI/InGameUI/HP
-@onready var speedUI = $GameUI/InGameUI/Speed
 @onready var scoreUI = $GameUI/InGameUI/Score
 @onready var enemySpawner = $EnemySpawner
 
@@ -28,7 +27,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	hpUI.text = 'HP: ' + str(playerhp)
-	speedUI.text = 'Speed: ' + str(speed)
 	scoreUI.text = 'Score: ' + str(score)
 	if playerhp <= 0:
 		GameOver()
@@ -42,8 +40,6 @@ func _on_player_spawn_laser(location):
 	var l = Laser.instantiate()
 	l.global_position = location
 	add_child(l)
-
-	
 
 func _on_player_killed():
 	GameOver()
@@ -62,10 +58,13 @@ func _on_enemy_damage(area):
 		increase_speed()
 		print("Enemy Takes Damage")
 		
-func GameOver():
-	await get_tree().create_timer(0).timeout
-	gameover.visible = true
+func GameOver():	
+	player.running = false
 	enemySpawner.running = false
+	await get_tree().create_timer(0.5).timeout
+	gameover.visible = true
+
+	
 	
 
 	
