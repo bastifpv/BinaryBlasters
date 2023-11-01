@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://qrwlikm6w4ee" path="res://scene/player.tscn" id="2_wq8q6"]
 [ext_resource type="PackedScene" uid="uid://dwvv11a2bo5jw" path="res://scene/enemy_spawner.tscn" id="4_tmrqf"]
 [ext_resource type="PackedScene" uid="uid://d30mj2l8qa5y8" path="res://scene/UI/game_over.tscn" id="6_j5pt3"]
-[ext_resource type="PackedScene" uid="uid://dkhtankgdq7ka" path="res://scene/in_game_ui.tscn" id="6_wujp3"]
+[ext_resource type="PackedScene" uid="uid://dkhtankgdq7ka" path="res://scene/UI/in_game_ui.tscn" id="6_wujp3"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_d2oly")
