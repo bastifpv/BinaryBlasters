@@ -56,6 +56,7 @@ func _on_enemy_damage(area):
 		area.take_damage(1)
 		score += 1
 		increase_speed()
+		$KILL.play()
 		print("Enemy Takes Damage")
 		
 func GameOver():	

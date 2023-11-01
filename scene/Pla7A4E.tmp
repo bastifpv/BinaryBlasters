@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b83c4awd4kpgp"]
+[gd_scene load_steps=5 format=3 uid="uid://b83c4awd4kpgp"]
 
 [ext_resource type="Texture2D" uid="uid://cmlvx4xyukt6e" path="res://assets/PNG/Lasers/laserGreen03.png" id="1_hd4gf"]
 [ext_resource type="Script" path="res://scripts/PlayerLaser.gd" id="1_qgbn4"]
 [ext_resource type="AudioStream" uid="uid://drffv03qvu0c8" path="res://assets/Sounds/laserblast.wav" id="3_knyry"]
-[ext_resource type="AudioStream" uid="uid://b32vx1xq410y7" path="res://assets/Sounds/kill.mp3" id="4_k2eu0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x6wb3"]
 radius = 5.0
@@ -28,9 +27,6 @@ scale = Vector2(0.4, 0.35)
 
 [node name="PIO" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_knyry")
-
-[node name="KILL" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_k2eu0")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm08hnoctsvjd"]
+[gd_scene load_steps=8 format=3 uid="uid://dm08hnoctsvjd"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_d2oly"]
 [ext_resource type="Texture2D" uid="uid://tmctx5dcsodj" path="res://assets/Backgrounds/darkPurple.png" id="1_dldcb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwvv11a2bo5jw" path="res://scene/enemy_spawner.tscn" id="4_tmrqf"]
 [ext_resource type="PackedScene" uid="uid://d30mj2l8qa5y8" path="res://scene/UI/game_over.tscn" id="6_j5pt3"]
 [ext_resource type="PackedScene" uid="uid://dkhtankgdq7ka" path="res://scene/UI/in_game_ui.tscn" id="6_wujp3"]
+[ext_resource type="AudioStream" uid="uid://b32vx1xq410y7" path="res://assets/Sounds/kill.mp3" id="7_aneru"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_d2oly")
@@ -28,3 +29,6 @@ position = Vector2(270, 750)
 
 [node name="GameOver" parent="GameUI" instance=ExtResource("6_j5pt3")]
 visible = false
+
+[node name="KILL" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_aneru")

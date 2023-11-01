@@ -5,6 +5,7 @@ signal didHit()
 var speed = 1000
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$PIO.play()
 	pass # Replace with function body.
 
 
@@ -20,9 +21,9 @@ func _on_area_entered(area):
 		Controller.score += 1
 		Controller.increase_speed()
 		queue_free()
+		$KILL.play()
 		print("Enemy Takes Damage")
 
-	
 		
 func _physics_process(delta):
 	global_position.y += delta * -GlobalValues.laserSpeed
