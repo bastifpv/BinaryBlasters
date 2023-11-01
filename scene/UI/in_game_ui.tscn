@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dkhtankgdq7ka"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_3tt6b"]
-font_size = 20
+[ext_resource type="FontFile" uid="uid://5i8hq53m2ron" path="res://assets/Bonus/kenvector_future.ttf" id="1_qhbyh"]
 
 [node name="InGameUI" type="Control"]
 layout_mode = 3
@@ -11,15 +10,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HP" type="Label" parent="."]
-layout_mode = 0
-offset_left = 470.0
-offset_right = 540.0
-offset_bottom = 39.0
-label_settings = SubResource("LabelSettings_3tt6b")
-
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
+offset_left = 10.0
 offset_top = -1.0
-offset_right = 54.0
-offset_bottom = 34.0
+offset_right = 231.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("1_qhbyh")
+theme_override_font_sizes/font_size = 40
+text = "Score: X"
+
+[node name="HP" type="Label" parent="."]
+layout_mode = 0
+offset_left = 415.0
+offset_right = 540.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("1_qhbyh")
+theme_override_font_sizes/font_size = 40
+text = "HP: X"
