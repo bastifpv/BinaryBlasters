@@ -30,9 +30,11 @@ func _process(delta):
 	hpUI.text = 'HP: ' + str(playerhp)
 	speedUI.text = 'Speed: ' + str(speed)
 	scoreUI.text = 'Score: ' + str(score)
+	if playerhp <= 0:
+		GameOver()
 
 static func increase_speed():
-	Controller.speed = max(0.3, Controller.speed - 0.05 * log(Controller.speed + 1))
+	Controller.speed = max(0.3, Controller.speed - (randf() * 0.04 + 0.01) * log(Controller.speed + 1))
 
 
 
@@ -44,9 +46,8 @@ func _on_player_spawn_laser(location):
 	
 
 func _on_player_killed():
-	await get_tree().create_timer(0).timeout
-	gameover.visible = true
-	player.queue_free()
+	GameOver()
+	
 
 func _on_player_damage(val):
 	playerhp -= val
@@ -61,6 +62,13 @@ func _on_enemy_damage(area):
 		increase_speed()
 		print("Enemy Takes Damage")
 		
+func GameOver():
+	await get_tree().create_timer(0).timeout
+	gameover.visible = true
+	enemySpawner.running = false
+	
 
+	
+	
 
 	
