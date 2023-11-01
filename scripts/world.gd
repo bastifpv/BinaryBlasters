@@ -11,7 +11,7 @@ var lasers = []
 static var playerhp = 1
 static var speed = 2
 static var score = 0
-
+var speed_increment = 10
 
 var Laser = preload("res://scene/PlayerLaser.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -30,6 +30,11 @@ func _process(delta):
 	hpUI.text = 'HP: ' + str(playerhp)
 	speedUI.text = 'Speed: ' + str(speed)
 	scoreUI.text = 'Score: ' + str(score)
+
+static func increase_speed():
+	Controller.speed = max(0.3, Controller.speed - 0.05 * log(Controller.speed + 1))
+
+
 
 func _on_player_spawn_laser(location):
 	var l = Laser.instantiate()
@@ -53,7 +58,7 @@ func _on_enemy_damage(area):
 	if area.is_in_group("enemie"):
 		area.take_damage(1)
 		score += 1
-		speed -= 0.05
+		increase_speed()
 		print("Enemy Takes Damage")
 		
 

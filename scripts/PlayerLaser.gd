@@ -18,7 +18,7 @@ func _on_area_entered(area):
 	if area.is_in_group("enemie"):
 		area.take_damage(1)
 		Controller.score += 1
-		Controller.speed -= 0.05
+		Controller.increase_speed()
 		queue_free()
 		print("Enemy Takes Damage")
 
