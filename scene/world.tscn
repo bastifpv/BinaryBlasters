@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm08hnoctsvjd"]
+[gd_scene load_steps=9 format=3 uid="uid://dm08hnoctsvjd"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_d2oly"]
 [ext_resource type="Texture2D" uid="uid://tmctx5dcsodj" path="res://assets/Backgrounds/darkPurple.png" id="1_dldcb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d30mj2l8qa5y8" path="res://scene/UI/game_over.tscn" id="6_j5pt3"]
 [ext_resource type="PackedScene" uid="uid://dkhtankgdq7ka" path="res://scene/UI/in_game_ui.tscn" id="6_wujp3"]
 [ext_resource type="AudioStream" uid="uid://b32vx1xq410y7" path="res://assets/Sounds/kill.mp3" id="7_aneru"]
+[ext_resource type="AudioStream" uid="uid://bc0toucn526tj" path="res://assets/Space_half 8-bit.mp3" id="8_wyshp"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_d2oly")
@@ -32,3 +33,6 @@ visible = false
 
 [node name="KILL" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_aneru")
+
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_wyshp")

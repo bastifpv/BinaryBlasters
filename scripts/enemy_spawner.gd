@@ -27,8 +27,10 @@ func spawn_enemy():
 		var random = rng.randf_range(0,100)
 		if int(random) % 2 == 1:
 			enemy = Enemy.instantiate()
+			enemy.speed = GlobalValues.enemySpeed
 		else: 
 			enemy = Enemy2.instantiate()
+			enemy.speed = GlobalValues.enemy2Speed
 		enemy.global_position = spawn_positions[index].global_position
 		add_child(enemy)
 	

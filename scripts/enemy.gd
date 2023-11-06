@@ -1,10 +1,10 @@
 extends Area2D
 
-
+var speed = 1
 var hp = 1 
 
 func _physics_process(delta):
-	global_position.y += GlobalValues.enemySpeed * delta
+	global_position.y += speed * delta
 
 func take_damage(damage):
 	hp -= damage

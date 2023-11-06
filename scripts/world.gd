@@ -5,6 +5,7 @@ class_name Controller
 @onready var hpUI = $GameUI/InGameUI/HP
 @onready var scoreUI = $GameUI/InGameUI/Score
 @onready var enemySpawner = $EnemySpawner
+@onready var bgmusic = $BGMusic
 
 var lasers = []
 static var playerhp = 1
@@ -23,6 +24,7 @@ func _ready():
 	playerhp = 1
 	speed = 2
 	score = 0
+	bgmusic.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
