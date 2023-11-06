@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsgbma2x4oly6"]
+[gd_scene load_steps=9 format=3 uid="uid://bsgbma2x4oly6"]
 
 [ext_resource type="FontFile" uid="uid://5i8hq53m2ron" path="res://assets/Bonus/kenvector_future.ttf" id="1_cis03"]
 [ext_resource type="Script" path="res://scene/UI/main_menu.gd" id="1_fipjy"]
 [ext_resource type="StyleBox" uid="uid://kabe0e186yjo" path="res://scene/UI/ButtonStyle.tres" id="2_ilq1v"]
 [ext_resource type="Texture2D" uid="uid://b0px5o1a4bu7o" path="res://assets/PNG/UI/buttonBlue.png" id="3_pvc44"]
 [ext_resource type="LabelSettings" uid="uid://bav5c781rxa3g" path="res://scene/UI/ButtonLable.tres" id="4_pfrnb"]
+[ext_resource type="AudioStream" uid="uid://cwpowj80dk1ya" path="res://assets/Music/Dimensional_half 8-bit.mp3" id="6_blspi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jiuag"]
 corner_radius_top_left = 50
@@ -116,6 +117,9 @@ text = "Start"
 label_settings = ExtResource("4_pfrnb")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_blspi")
 
 [connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Panel/Start" to="." method="_on_restart_pressed"]

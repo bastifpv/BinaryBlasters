@@ -8,8 +8,8 @@ class_name Controller
 @onready var bgmusic = $BGMusic
 
 var lasers = []
-static var playerhp = 1
-static var speed = 2
+static var playerhp = 0
+static var speed = 0
 static var score = 0
 var speed_increment = 10
 

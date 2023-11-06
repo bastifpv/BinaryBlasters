@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d30mj2l8qa5y8" path="res://scene/UI/game_over.tscn" id="6_j5pt3"]
 [ext_resource type="PackedScene" uid="uid://dkhtankgdq7ka" path="res://scene/UI/in_game_ui.tscn" id="6_wujp3"]
 [ext_resource type="AudioStream" uid="uid://b32vx1xq410y7" path="res://assets/Sounds/kill.mp3" id="7_aneru"]
-[ext_resource type="AudioStream" uid="uid://bc0toucn526tj" path="res://assets/Space_half 8-bit.mp3" id="8_wyshp"]
+[ext_resource type="AudioStream" uid="uid://bc0toucn526tj" path="res://assets/Music/Space_half 8-bit.mp3" id="8_qfljp"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_d2oly")
@@ -35,4 +35,4 @@ visible = false
 stream = ExtResource("7_aneru")
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_wyshp")
+stream = ExtResource("8_qfljp")
