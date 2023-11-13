@@ -1,6 +1,6 @@
 # BinaryBlasters
 
-Space shooter game with dotot
+Space shooter game with gotot 4.1.2
 
 ### TimeTable:
 - Project and World Creation  
