@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d30mj2l8qa5y8"]
+[gd_scene load_steps=9 format=3 uid="uid://d30mj2l8qa5y8"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_426mo"]
 [ext_resource type="FontFile" uid="uid://5i8hq53m2ron" path="res://assets/Bonus/kenvector_future.ttf" id="2_aannk"]
@@ -15,6 +15,11 @@ corner_radius_bottom_left = 50
 [sub_resource type="LabelSettings" id="LabelSettings_nnppu"]
 font = ExtResource("2_aannk")
 font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_ss27b"]
+line_spacing = 4.0
+font = ExtResource("2_aannk")
+font_size = 33
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -144,6 +149,20 @@ text = "Back to Menu"
 label_settings = ExtResource("3_fixkb")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Highscore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -92.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Highscore: XY"
+label_settings = SubResource("LabelSettings_ss27b")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Panel/Restart" to="." method="_on_restart_pressed"]

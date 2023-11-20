@@ -6,13 +6,13 @@ class_name Controller
 @onready var scoreUI = $GameUI/InGameUI/Score
 @onready var enemySpawner = $EnemySpawner
 @onready var bgmusic = $BGMusic
+@onready var highscoreText = $GameUI/GameOver/Highscore
 
 var lasers = []
 static var playerhp = 0
 static var speed = 0
 static var score = 0
 var speed_increment = 10
-var filedata = "user://user.data"
 var config_file = ConfigFile.new()
 var Laser = preload("res://scene/PlayerLaser.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -26,12 +26,15 @@ func _ready():
 	speed = 2
 	score = 0
 	bgmusic.play()
+	if config_file.load("user://highscore.cfg") == OK:
+		print("High score loaded:", config_file.get_value("HighScore", "score", 0))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	hpUI.text = 'HP: ' + str(playerhp)
 	scoreUI.text = 'Score: ' + str(score)
 	if playerhp <= 0:
+		highscoreText.text =  'HighScore: ' + str(get_high_score())
 		GameOver()
 
 static func increase_speed():
@@ -65,7 +68,7 @@ func _on_enemy_damage(area):
 func GameOver():	
 	player.running = false
 	enemySpawner.running = false
-	if score > get_high_score():
+	if score >= get_high_score():
 		save_high_score(score)
 	await get_tree().create_timer(0.5).timeout
 	gameover.visible = true
