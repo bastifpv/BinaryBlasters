@@ -12,7 +12,8 @@ static var playerhp = 0
 static var speed = 0
 static var score = 0
 var speed_increment = 10
-
+var filedata = "user://user.data"
+var config_file = ConfigFile.new()
 var Laser = preload("res://scene/PlayerLaser.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -64,10 +65,19 @@ func _on_enemy_damage(area):
 func GameOver():	
 	player.running = false
 	enemySpawner.running = false
+	if score > get_high_score():
+		save_high_score(score)
 	await get_tree().create_timer(0.5).timeout
 	gameover.visible = true
 
-	
+func save_high_score(score):
+	# Save the high score
+	config_file.set_value("HighScore", "score", score)
+	config_file.save("user://highscore.cfg")
+
+func get_high_score():
+	# Get the high score
+	return config_file.get_value("HighScore", "score", 0)
 	
 
 	
